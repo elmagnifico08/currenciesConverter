@@ -74,8 +74,10 @@ public class HelloController {
 
             try {
                 Integer.parseInt(newValue);
+                outResult();
             }
             catch (NumberFormatException e){
+                outResult();
                 amount.setText(oldValue);
                 System.out.println("error");
 
