@@ -55,7 +55,7 @@ public class HelloController {
     private TextField amount;
 
     @FXML
-    private Button getCurse;
+    private Button reverse;
 
     @FXML
     private ComboBox<String> baseCurr;
@@ -83,7 +83,6 @@ public class HelloController {
 
 
         });
-
         String[] arr = currencies.values().toArray(new String[0]);
         ObservableList<String> val =
                 FXCollections.observableArrayList(arr);
@@ -93,6 +92,11 @@ public class HelloController {
 
         currTar.setItems(val);
         currTar.setValue(val.get(1));
+
+        reverse.setOnAction(ActionEvent -> {
+            outResult();
+
+        });
 
         amount.setOnAction(ActionEvent -> {
             outResult();
@@ -108,6 +112,7 @@ public class HelloController {
 
         return ;
     }
+
 
 private void outResult(){
     String baseCurrency = String.valueOf(baseCurr.getValue());
