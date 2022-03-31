@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -153,7 +154,9 @@ private void outResult(){
     }
     Double getDouble = Double.valueOf(String.valueOf(jsonNode.get(targetIso).asDouble()));
     double out = getDouble * getAmount;
-    currenceResult.setText(String.valueOf(out));
+    DecimalFormat decimalFormat = new DecimalFormat( "#.###" );
+    String outRes = decimalFormat.format(out);
+    currenceResult.setText(String.valueOf(outRes));
 }
     private static String getUrlContent(String urlAdress) throws IOException {
         StringBuffer content = new StringBuffer();
