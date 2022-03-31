@@ -85,9 +85,9 @@ public class HelloController {
 
 
         });
-        String[] arr = currencies.values().toArray(new String[0]);
+
         ObservableList<String> val =
-                FXCollections.observableArrayList(arr);
+                FXCollections.observableArrayList(currencies.values());
 
         baseCurr.setItems(val);
         baseCurr.setValue(val.get(1));
@@ -96,8 +96,12 @@ public class HelloController {
         currTar.setValue(val.get(1));
 
         reverse.setOnAction(ActionEvent -> {
-            outResult();
+            String a = String.valueOf(baseCurr.getValue());
+            String b = String.valueOf(currTar.getValue());
 
+            baseCurr.setValue(b);
+            currTar.setValue(a);
+            outResult();
         });
 
         amount.setOnAction(ActionEvent -> {
@@ -114,6 +118,7 @@ public class HelloController {
 
         return ;
     }
+
 
 
 private void outResult(){
